@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All</title>
+    <link rel="Stylesheet" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    {%for pet in pets%}
+        <div class="tile">
+        {% if pet.photo_url%}
+            <img src="{{pet.photo_url}}" alt="{{pet.name}}" height="350px" width="350px">
+        {%endif%}
+        <p><a href="/{{pet.id}}">{{pet.name}}
+            {%if pet.available%}
+            <b>is available</b>
+            {%else%}
+            Not available
+            {%endif%}
+        </a>    
+        </p>
+        </div>
+    {%endfor%}
+
+
+    <a href="/add">Add new pet</a>
+</body>
+</html>
